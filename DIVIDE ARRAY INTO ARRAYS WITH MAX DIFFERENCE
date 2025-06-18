@@ -1,3 +1,6 @@
+CREATE THE GROUP OF THREE
+CHECK IF c-a>k ? then return empty array
+otherwise push a,b,c into array --> vector of vector 
 class Solution {
 public:
     vector<vector<int>> divideArray(vector<int>& nums, int k) {
