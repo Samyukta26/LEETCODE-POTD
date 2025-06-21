@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int minimumDeletions(string word, int k) {
+        unordered_map<char, int> freq;
+        for (char c : word) freq[c]++;
+
+        vector<int> v;
+        for (auto it : freq) v.push_back(it.second);
+
+        int minDel = INT_MAX;
+
+        for (int baseFreq : v) {
+            int deletions = 0;
+            for (int f : v) {
+                if (f < baseFreq) deletions += f;
+                else if (f > baseFreq + k) deletions += (f - (baseFreq + k));
+            }
+            minDel = min(minDel, deletions);
+        }
+
+        return minDel;
+    }
+};
